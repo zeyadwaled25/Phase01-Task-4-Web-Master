@@ -1,8 +1,15 @@
+window.addEventListener("load", () => {
+  const user = JSON.parse(window.localStorage.getItem("User"));
+  if (window.location.href == "./login.html" && !user) {
+    window.location.href = "./index.html";
+  }
+});
+
 const regexEmail = /^[a-zA-Z]{4,}[a-zA-Z0-9._-]*@gmail\.com$/;
 const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
 // Register Page
-if (window.location.pathname == "/index.html") {
+if (window.location.href == "./index.html") {
   document.querySelector(".name").addEventListener("blur", (event) => {
     const inputValue = event.target.value;
     document.getElementById("error-name").style.display = inputValue.length < 3 ? 'block' : 'none';
@@ -47,7 +54,7 @@ if (window.location.pathname == "/index.html") {
 }
 
 // Login Page
-if (window.location.pathname == "/login.html") {
+if (window.location.href == "./login.html") {
   document.getElementById("login-btn").addEventListener('click', (e) => {
     e.preventDefault();
   
@@ -65,7 +72,7 @@ if (window.location.pathname == "/login.html") {
 }
 
 // Profile page
-if (window.location.pathname == "/profile.html") {
+if (window.location.href == "/profile.html") {
   const storedUser = JSON.parse(window.localStorage.getItem("User"));
   !storedUser ? window.location.href = "./index.html" : null
   const username = storedUser.name;
