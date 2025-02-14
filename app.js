@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
   const user = JSON.parse(window.localStorage.getItem("User"));
-  if (window.location.href == "./login.html" && !user) {
-    window.location.href = "./index.html";
+  if (window.location.pathname === "/Phase01-Task-4-Web-Master/login.html" && !user) {
+    window.location.href = "/Phase01-Task-4-Web-Master/index.html";
   }
 });
 
@@ -9,7 +9,7 @@ const regexEmail = /^[a-zA-Z]{4,}[a-zA-Z0-9._-]*@gmail\.com$/;
 const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
 // Register Page
-if (window.location.href == "./index.html") {
+if (window.location.pathname === "/Phase01-Task-4-Web-Master/index.html") {
   document.querySelector(".name").addEventListener("blur", (event) => {
     const inputValue = event.target.value;
     document.getElementById("error-name").style.display = inputValue.length < 3 ? 'block' : 'none';
@@ -48,13 +48,13 @@ if (window.location.href == "./index.html") {
     if (isNameValid && isEmailValid && isPasswordValid) {
       const user = { name, email, password };
       window.localStorage.setItem("User", JSON.stringify(user));
-      window.location.href = "./login.html";
+      window.location.href = "/Phase01-Task-4-Web-Master/login.html";
     }
   });
 }
 
 // Login Page
-if (window.location.href == "./login.html") {
+if (window.location.pathname === "/Phase01-Task-4-Web-Master/login.html") {
   document.getElementById("login-btn").addEventListener('click', (e) => {
     e.preventDefault();
   
@@ -64,7 +64,7 @@ if (window.location.href == "./login.html") {
     const storedUser = JSON.parse(window.localStorage.getItem("User"));
   
     if (email === storedUser.email && password === storedUser.password) {
-      window.location.href = "./profile.html";
+      window.location.href = "/Phase01-Task-4-Web-Master/profile.html";
     } else {
       alert("Email or Password is invalid")
     }
@@ -72,9 +72,9 @@ if (window.location.href == "./login.html") {
 }
 
 // Profile page
-if (window.location.href == "/profile.html") {
+if (window.location.pathname === "/Phase01-Task-4-Web-Master/profile.html") {
   const storedUser = JSON.parse(window.localStorage.getItem("User"));
-  !storedUser ? window.location.href = "./index.html" : null
+  !storedUser ? window.location.href = "/Phase01-Task-4-Web-Master/index.html" : null
   const username = storedUser.name;
   const email = storedUser.email;
   document.querySelector("#username span").textContent += username
@@ -84,6 +84,6 @@ if (window.location.href == "/profile.html") {
     e.preventDefault()
 
     window.localStorage.removeItem("User")
-    window.location.href = "./index.html";
+    window.location.href = "/Phase01-Task-4-Web-Master/index.html";
   })
 }
