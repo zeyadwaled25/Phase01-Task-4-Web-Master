@@ -1,0 +1,63 @@
+body {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.signup-page, .login-page, .profile-page {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  margin: 16px;
+}
+
+.form h2 {
+  color: #333;
+}
+.form-control {
+  border-radius: 5px;
+}
+
+#sign-up-btn, #login-btn {
+  background: #2575fc;
+  border: none;
+  transition: 0.3s;
+}
+#sign-up-btn:hover, #login-btn:hover {
+  background: #6a11cb;
+}
+
+#logout-btn {
+  background: #dc3545;
+  border: none;
+  transition: 0.3s;
+  font-size: 1rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+#logout-btn:hover {
+  background: #bb2d3b;
+}
+
+p a {
+  color: #2575fc;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+p[id^="error-"] {
+  color: red;
+  font-size: 0.9rem;
+  display: none;
+}
