@@ -9,7 +9,7 @@ const regexEmail = /^[a-zA-Z]{4,}[a-zA-Z0-9._-]*@gmail\.com$/;
 const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
 // Register Page
-if (window.location.pathname === "/Phase01-Task-4-Web-Master/index.html") {
+if ((window.location.pathname === "/Phase01-Task-4-Web-Master/index.html") || (window.location.pathname === "/Phase01-Task-4-Web-Master/")) {
   document.querySelector(".name").addEventListener("blur", (event) => {
     const inputValue = event.target.value;
     document.getElementById("error-name").style.display = inputValue.length < 3 ? 'block' : 'none';
